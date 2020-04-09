@@ -16,22 +16,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: - IBOutlets
     
-    
     @IBOutlet weak var itensTableView: UITableView?
     
     // MARK: - Atributos
 
     var delegate: AdicionaRefeicaoDelegate?
-    var itens: [Item] = [
-                        Item(nome: "Molho de Tomate", calorias: 40.0),
-                        Item(nome: "Queijo", calorias: 40.0),
-                        Item(nome: "Molho Apimentado", calorias: 40.0),
-                        Item(nome: "Requeijão", calorias: 40.0),
-                        Item(nome: "Suco", calorias: 40.0)
-    ]
+    var itens: [Item] = []
     var itensSelecionados: [Item] = []
     
-//    var itens: [String] = ["Molho de tomate", "Queijo", "Molho Apimentado", "Requeijão"]
 
     // MARK: - IBOutlets
     
@@ -44,6 +36,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         let botaoAddItem = UIBarButtonItem(title: "Add Item", style: .plain, target: self, action: #selector(addItem))
         navigationItem.rightBarButtonItem = botaoAddItem
+        
+        itens = ItemDao().recupera()
     }
     
     @objc func addItem() {
@@ -53,8 +47,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func add (_ item: Item) {
         itens.append(item)
-        itensTableView?.reloadData()
+        // itensTableView?.reloadData()
+        if let tableView = itensTableView {
+            tableView.reloadData()
+        } else {
+            Alerta(controller: self).exibe(title: "Desculpe", message: "Não foi possível atualizar a tabela")
+        }
+        ItemDao().save(itens)
+        
     }
+    
+    func recuperaRefeicaoDoForm() -> Refeicao? {
+        guard let nomeDaRefeicao = nomeTxt?.text else { return nil }
+        guard let felicidadeDaRefeicao = felicidadeTxt?.text, let felicidade = Int(felicidadeDaRefeicao) else { return nil }
+
+        let refeicao = Refeicao(nome: nomeDaRefeicao, felicidade:felicidade, itens: itensSelecionados)
+        
+        return refeicao;
+    }
+
     
     // MARK: - UITableViewDataSource
     
@@ -98,21 +109,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBAction func adicionar(_ sender: Any) {
         
-        guard let nomeDaRefeicao = nomeTxt?.text else {
-            return
+        if let refeicao = recuperaRefeicaoDoForm() {
+        
+            delegate?.add(refeicao)
+        
+            navigationController?.popViewController(animated: true)
+        } else {
+            Alerta(controller: self).exibe(message: "Erro ao ler dados do formulário")
         }
-        guard let felicidadeDaRefeicao = felicidadeTxt?.text, let felicidade = Int(felicidadeDaRefeicao) else {
-            return
-        }
-
-        let refeicao = Refeicao(nome: nomeDaRefeicao, felicidade:felicidade, itens: itensSelecionados)
-        
-        
-        print("comi \(refeicao.nome) e fiquei com felicidade: \(refeicao.felicidade)")
-        
-        delegate?.add(refeicao)
-        
-        navigationController?.popViewController(animated: true)
     }
     
     

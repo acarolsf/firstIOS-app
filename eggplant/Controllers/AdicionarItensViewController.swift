@@ -53,8 +53,6 @@ class AdicionarItensViewController: UIViewController {
             delegate?.add(item)
             navigationController?.popViewController(animated: true)
         }
-    
-        
     }
     
 }

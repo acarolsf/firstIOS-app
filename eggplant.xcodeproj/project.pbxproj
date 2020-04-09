@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A0E9486243F54F400C44F3D /* Alerta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0E9485243F54F400C44F3D /* Alerta.swift */; };
+		9A0E9488243F5F8C00C44F3D /* RemoveRefeicaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0E9487243F5F8C00C44F3D /* RemoveRefeicaoViewController.swift */; };
 		9A71CC96243E4779003B559A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A71CC95243E4779003B559A /* AppDelegate.swift */; };
 		9A71CC98243E4779003B559A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A71CC97243E4779003B559A /* SceneDelegate.swift */; };
 		9A71CC9A243E4779003B559A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A71CC99243E4779003B559A /* ViewController.swift */; };
@@ -18,9 +20,13 @@
 		9A71CCB1243E4FBB003B559A /* RefeicoesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A71CCB0243E4FBB003B559A /* RefeicoesTableViewController.swift */; };
 		9A71CCB4243E7876003B559A /* AdicionarItensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A71CCB2243E7876003B559A /* AdicionarItensViewController.swift */; };
 		9A71CCB5243E7876003B559A /* AdicionarItensViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A71CCB3243E7876003B559A /* AdicionarItensViewController.xib */; };
+		9A74F8D0243FA4C700D9A8D5 /* RefeicoesDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A74F8CF243FA4C700D9A8D5 /* RefeicoesDao.swift */; };
+		9A74F8D2243FA7BA00D9A8D5 /* ItemDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A74F8D1243FA7BA00D9A8D5 /* ItemDao.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A0E9485243F54F400C44F3D /* Alerta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerta.swift; sourceTree = "<group>"; };
+		9A0E9487243F5F8C00C44F3D /* RemoveRefeicaoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveRefeicaoViewController.swift; sourceTree = "<group>"; };
 		9A71CC92243E4779003B559A /* eggplant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eggplant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A71CC95243E4779003B559A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A71CC97243E4779003B559A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +40,8 @@
 		9A71CCB0243E4FBB003B559A /* RefeicoesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefeicoesTableViewController.swift; sourceTree = "<group>"; };
 		9A71CCB2243E7876003B559A /* AdicionarItensViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionarItensViewController.swift; sourceTree = "<group>"; };
 		9A71CCB3243E7876003B559A /* AdicionarItensViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdicionarItensViewController.xib; sourceTree = "<group>"; };
+		9A74F8CF243FA4C700D9A8D5 /* RefeicoesDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefeicoesDao.swift; sourceTree = "<group>"; };
+		9A74F8D1243FA7BA00D9A8D5 /* ItemDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDao.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,9 @@
 			children = (
 				9A71CCAC243E4BD4003B559A /* Item.swift */,
 				9A71CCAE243E4BF9003B559A /* Refeicao.swift */,
+				9A0E9485243F54F400C44F3D /* Alerta.swift */,
+				9A74F8CF243FA4C700D9A8D5 /* RefeicoesDao.swift */,
+				9A74F8D1243FA7BA00D9A8D5 /* ItemDao.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -93,6 +104,7 @@
 				9A71CCB2243E7876003B559A /* AdicionarItensViewController.swift */,
 				9A71CC99243E4779003B559A /* ViewController.swift */,
 				9A71CCB0243E4FBB003B559A /* RefeicoesTableViewController.swift */,
+				9A0E9487243F5F8C00C44F3D /* RemoveRefeicaoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -178,8 +190,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A0E9486243F54F400C44F3D /* Alerta.swift in Sources */,
 				9A71CCAD243E4BD4003B559A /* Item.swift in Sources */,
+				9A74F8D0243FA4C700D9A8D5 /* RefeicoesDao.swift in Sources */,
 				9A71CCAF243E4BF9003B559A /* Refeicao.swift in Sources */,
+				9A74F8D2243FA7BA00D9A8D5 /* ItemDao.swift in Sources */,
+				9A0E9488243F5F8C00C44F3D /* RemoveRefeicaoViewController.swift in Sources */,
 				9A71CCB4243E7876003B559A /* AdicionarItensViewController.swift in Sources */,
 				9A71CC9A243E4779003B559A /* ViewController.swift in Sources */,
 				9A71CCB1243E4FBB003B559A /* RefeicoesTableViewController.swift in Sources */,
